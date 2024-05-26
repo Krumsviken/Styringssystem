@@ -91,82 +91,82 @@ def nothing(x):
 def draw_chess_grid(image):
     # Define the grid coordinates based on the pixel coordinates
     grid_coordinates = {
-        'A1': (513, 580, 402, 470),
-        'A2': (508, 590, 340, 401),
-        'A3': (508, 600, 281, 339),
-        'A4': (505, 608, 223, 279),
-        'A5': (505, 590, 167, 222),
-        'A6': (500, 585, 115, 166),
-        'A7': (500, 585, 60, 114),
+        'H8': (513, 580, 402, 470),
+        'G8': (508, 590, 340, 401),
+        'F8': (508, 600, 281, 339),
+        'E8': (505, 608, 223, 279),
+        'D8': (505, 590, 167, 222),
+        'C8': (500, 585, 115, 166),
+        'B8': (500, 585, 60, 114),
         'A8': (495, 585, 0, 59),
 
-        'B1': (447, 512, 400, 472),
-        'B2': (445, 510, 340, 400),
-        'B3': (445, 507, 280, 339),
-        'B4': (445, 504, 220, 279),
-        'B5': (445, 504, 160, 219),
-        'B6': (441, 499, 110, 159),
+        'H7': (447, 512, 400, 472),
+        'G7': (445, 510, 340, 400),
+        'F7': (445, 507, 280, 339),
+        'E7': (445, 504, 220, 279),
+        'D7': (445, 504, 160, 219),
+        'C7': (441, 499, 110, 159),
         'B7': (441, 499, 57, 109),
-        'B8': (438, 494, 0, 56),
+        'A7': (438, 494, 0, 56),
 
-        'C1': (384, 446, 405, 479),
-        'C2': (383, 444, 340, 404),
-        'C3': (383, 444, 280, 339),
-        'C4': (383, 444, 220, 279),
-        'C5': (383, 444, 160, 219),
+        'H6': (384, 446, 405, 479),
+        'G6': (383, 444, 340, 404),
+        'F6': (383, 444, 280, 339),
+        'E6': (383, 444, 220, 279),
+        'D6': (383, 444, 160, 219),
         'C6': (381, 440, 102, 159),
-        'C7': (380, 440, 55, 101),
-        'C8': (380, 437, 0, 54),
+        'B6': (380, 440, 55, 101),
+        'A6': (380, 437, 0, 54),
 
-        'D1': (316, 383, 405, 480),
-        'D2': (316, 382, 340, 404),
-        'D3': (316, 382, 280, 339),
-        'D4': (317, 382, 220, 279),
+        'H5': (316, 383, 405, 480),
+        'G5': (316, 382, 340, 404),
+        'F5': (316, 382, 280, 339),
+        'E5': (317, 382, 220, 279),
         'D5': (318, 382, 159, 219),
-        'D6': (318, 380, 101, 158),
-        'D7': (318, 379, 50, 100),
-        'D8': (318, 379, 0, 49),
+        'C5': (318, 380, 101, 158),
+        'B5': (318, 379, 50, 100),
+        'A5': (318, 379, 0, 49),
 
-        'E1': (250, 315, 405, 480),
-        'E2': (250, 315, 340, 404),
-        'E3': (250, 315, 282, 339),
+        'H4': (250, 315, 405, 480),
+        'G4': (250, 315, 340, 404),
+        'F4': (250, 315, 282, 339),
         'E4': (250, 316, 218, 279),
-        'E5': (253, 317, 160, 219),
-        'E6': (255, 317, 100, 159),
-        'E7': (256, 317, 47, 99),
-        'E8': (256, 317, 0, 46),
+        'D4': (253, 317, 160, 219),
+        'C4': (255, 317, 100, 159),
+        'B4': (256, 317, 47, 99),
+        'A4': (256, 317, 0, 46),
 
-        'F1': (180, 249, 410, 480),
-        'F2': (180, 249, 342, 409),
+        'H3': (180, 249, 410, 480),
+        'G3': (180, 249, 342, 409),
         'F3': (183, 249, 281, 341),
-        'F4': (185, 249, 220, 280),
-        'F5': (187, 252, 158, 219),
-        'F6': (190, 254, 95, 157),
-        'F7': (192, 255, 45, 94),
-        'F8': (192, 255, 0, 44),
+        'E3': (185, 249, 220, 280),
+        'D3': (187, 252, 158, 219),
+        'C3': (190, 254, 95, 157),
+        'B3': (192, 255, 45, 94),
+        'A3': (192, 255, 0, 44),
 
-        'G1': (113, 179, 413, 480),
+        'H2': (113, 179, 413, 480),
         'G2': (112, 179, 341, 412),
-        'G3': (109, 182, 280, 340),
-        'G4': (112, 184, 220, 279),
-        'G5': (116, 186, 160, 219),
-        'G6': (120, 189, 100, 159),
-        'G7': (128, 191, 45, 99),
-        'G8': (130, 191, 0, 44),
+        'F2': (109, 182, 280, 340),
+        'E2': (112, 184, 220, 279),
+        'D2': (116, 186, 160, 219),
+        'C2': (120, 189, 100, 159),
+        'B2': (128, 191, 45, 99),
+        'A2': (130, 191, 0, 44),
 
         'H1': (20, 112, 410, 480),
-        'H2': (23, 111, 344, 409),
-        'H3': (25, 108, 280, 343),
-        'H4': (32, 111, 220, 279),
-        'H5': (37, 115, 156, 219),
-        'H6': (42, 119, 95, 155),
-        'H7': (55, 127, 43, 94),
-        'H8': (60, 130, 0, 43),
+        'G1': (23, 111, 344, 409),
+        'F1': (25, 108, 280, 343),
+        'E1': (32, 111, 220, 279),
+        'D1': (37, 115, 156, 219),
+        'C1': (42, 119, 95, 155),
+        'B1': (55, 127, 43, 94),
+        'A1': (60, 130, 0, 43),
     }
     # Draw grid lines based on the provided coordinates
     for key, (x1, x2, y1, y2) in grid_coordinates.items():
         cv2.rectangle(image, (x1, y1), (x2, y2), (0, 0, 255), 1)
-        cv2.putText(image, key, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv2.LINE_AA)
+        cv2.putText(image, key, (x1, y1 + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv2.LINE_AA)
     
     return image, grid_coordinates
 
@@ -216,7 +216,7 @@ def compare_piece_positions(old_positions, new_positions):
         else:
             old_x, old_y, old_w, old_h, old_color = old_piece
             new_x, new_y, new_w, new_h, new_color = new_positions[key]
-            if abs(old_x - new_x) > 5 or abs(old_y - new_y) > 10:  # Introduce a tolerance of 10 pixels
+            if abs(old_x - new_x) > 25 or abs(old_y - new_y) > 30:  # Introduce a tolerance of 10 pixels
                 movements.append(f'{old_color[0].upper()} moved from {key} to {key}')
 
     for key, new_piece in new_positions.items():
@@ -230,6 +230,29 @@ def compare_piece_positions(old_positions, new_positions):
                 
     return movements
 
+def generate_movement_strings(movements, old_positions, new_positions):
+    move_strings = []
+    for move in movements:
+        if 'moved from' in move:
+            color, from_pos = move.split(' moved from ')
+            if ' to ' in move:
+                to_pos = move.split(' to ')[-1]
+                move_strings.append(f'{color} moved from {from_pos}{to_pos}')
+            else:
+                to_pos = None
+                for key, new_piece in new_positions.items():
+                    if new_piece[4][0].upper() == color and key != from_pos:
+                        to_pos = key
+                        break
+                if to_pos:
+                    move_strings.append(f'{color} moved from {from_pos}{to_pos}')
+                    if to_pos in old_positions and old_positions[to_pos][4][0].upper() != color:
+                        move_strings.append(f'{old_positions[to_pos][4][0].upper()} captured at {to_pos}')
+        elif 'appeared at' in move:
+            color, at_pos = move.split(' appeared at ')
+            if at_pos in old_positions and old_positions[at_pos][4][0].upper() != color:
+                move_strings.append(f'{old_positions[at_pos][4][0].upper()} captured at {at_pos}')
+    return move_strings
 
 previous_positions = None
 
@@ -257,12 +280,12 @@ cv2.setTrackbarPos('S max', 'HSV Orange Mask', 255)
 cv2.setTrackbarPos('V min', 'HSV Orange Mask', 128)
 cv2.setTrackbarPos('V max', 'HSV Orange Mask', 255)
 
-cv2.setTrackbarPos('H min', 'HSV Black Mask', 9)     
+cv2.setTrackbarPos('H min', 'HSV Black Mask', 103)     
 cv2.setTrackbarPos('H max', 'HSV Black Mask', 128)
 cv2.setTrackbarPos('S min', 'HSV Black Mask', 0)
-cv2.setTrackbarPos('S max', 'HSV Black Mask', 255)
+cv2.setTrackbarPos('S max', 'HSV Black Mask', 206)
 cv2.setTrackbarPos('V min', 'HSV Black Mask', 0)
-cv2.setTrackbarPos('V max', 'HSV Black Mask', 128)
+cv2.setTrackbarPos('V max', 'HSV Black Mask', 86)
 
 while True:
     ret, frame = camera.read()
@@ -320,8 +343,9 @@ while True:
             movements = compare_piece_positions(previous_positions, final_positions)
             if movements:
                 print("Movements detected:")
-                for movement in movements:
-                    print(movement)
+                move_strings = generate_movement_strings(movements, previous_positions, final_positions)
+                for move_string in move_strings:
+                    print(move_string)
             else:
                 print("No movement detected.")
             previous_positions = final_positions
