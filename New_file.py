@@ -1,0 +1,3 @@
+import Camera_feed
+
+print(Camera_feed.generate_movement_strings)

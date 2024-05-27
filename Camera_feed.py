@@ -210,47 +210,39 @@ def determine_piece_position(pieces_positions):
 def compare_piece_positions(old_positions, new_positions):
     movements = []
 
-    for key, old_piece in old_positions.items():
-        if key not in new_positions:
-            movements.append(f'{old_piece[4][0].upper()} moved from {key}')
-        else:
-            old_x, old_y, old_w, old_h, old_color = old_piece
-            new_x, new_y, new_w, new_h, new_color = new_positions[key]
-            if abs(old_x - new_x) > 25 or abs(old_y - new_y) > 30:  # Introduce a tolerance of 10 pixels
-                movements.append(f'{old_color[0].upper()} moved from {key} to {key}')
+    for old_key, old_piece in old_positions.items():
+        found = False
+        for new_key, new_piece in new_positions.items():
+            if old_piece[4] == new_piece[4]:
+                if abs(old_piece[0] - new_piece[0]) <= 25 and abs(old_piece[1] - new_piece[1]) <= 30:
+                    found = True
+                    break
+        if not found:
+            movements.append((old_key, old_piece[4], "moved", new_key if new_key in new_positions else None))
 
-    for key, new_piece in new_positions.items():
-        if key not in old_positions:
-            movements.append(f'{new_piece[4][0].upper()} appeared at {key}')
-        else:
-            old_piece = old_positions[key]
-            if old_piece[4] != new_piece[4]:  # Check if the piece color has changed
-                movements.append(f'{old_piece[4][0].upper()} moved from {key}')
-                movements.append(f'{new_piece[4][0].upper()} appeared at {key}')
-                
+    for new_key, new_piece in new_positions.items():
+        if new_key not in old_positions or old_positions[new_key][4] != new_piece[4]:
+            movements.append((new_key, new_piece[4], "appeared", None))
+
     return movements
 
 def generate_movement_strings(movements, old_positions, new_positions):
     move_strings = []
     for move in movements:
-        if 'moved from' in move:
-            color, from_pos = move.split(' moved from ')
-            if ' to ' in move:
-                to_pos = move.split(' to ')[-1]
-                move_strings.append(f'{color} moved from {from_pos}{to_pos}')
-            else:
-                to_pos = None
-                for key, new_piece in new_positions.items():
-                    if new_piece[4][0].upper() == color and key != from_pos:
-                        to_pos = key
-                        break
-                if to_pos:
-                    move_strings.append(f'{color} moved from {from_pos}{to_pos}')
-                    if to_pos in old_positions and old_positions[to_pos][4][0].upper() != color:
-                        move_strings.append(f'{old_positions[to_pos][4][0].upper()} captured at {to_pos}')
-        elif 'appeared at' in move:
-            color, at_pos = move.split(' appeared at ')
-            if at_pos in old_positions and old_positions[at_pos][4][0].upper() != color:
+        if move[2] == "moved":
+            from_pos = move[0]
+            to_pos = None
+            for new_key, new_piece in new_positions.items():
+                if new_piece[4] == move[1] and new_key != from_pos:
+                    to_pos = new_key
+                    break
+            if to_pos:
+                move_strings.append(f'{from_pos}{to_pos}')
+                if to_pos in old_positions and old_positions[to_pos][4] != move[1]:
+                    move_strings.append(f'{old_positions[to_pos][4][0].upper()} captured at {to_pos}')
+        elif move[2] == "appeared":
+            at_pos = move[0]
+            if at_pos in old_positions and old_positions[at_pos][4][0].upper() != move[1][0].upper():
                 move_strings.append(f'{old_positions[at_pos][4][0].upper()} captured at {at_pos}')
     return move_strings
 
@@ -281,7 +273,7 @@ cv2.setTrackbarPos('V min', 'HSV Orange Mask', 128)
 cv2.setTrackbarPos('V max', 'HSV Orange Mask', 255)
 
 cv2.setTrackbarPos('H min', 'HSV Black Mask', 103)     
-cv2.setTrackbarPos('H max', 'HSV Black Mask', 128)
+cv2.setTrackbarPos('H max', 'HSV Black Mask', 129)
 cv2.setTrackbarPos('S min', 'HSV Black Mask', 0)
 cv2.setTrackbarPos('S max', 'HSV Black Mask', 206)
 cv2.setTrackbarPos('V min', 'HSV Black Mask', 0)
