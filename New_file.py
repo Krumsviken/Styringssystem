@@ -1,3 +1,3 @@
 import Camera_feed
 
-print(Camera_feed.generate_movement_strings)
+player_movement = Camera_feed.move_string
