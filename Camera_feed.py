@@ -95,77 +95,77 @@ def nothing(x):
 def draw_chess_grid(image):
     # Define the grid coordinates based on the pixel coordinates
     grid_coordinates = {
-        'h8': (513, 580, 402, 470),
-        'g8': (508, 590, 340, 401),
-        'f8': (508, 600, 281, 339),
-        'e8': (505, 608, 223, 279),
-        'd8': (505, 590, 167, 222),
-        'c8': (500, 585, 115, 166),
-        'b8': (500, 585, 60, 114),
-        'a8': (495, 585, 0, 59),
+        'h8': (513, 600, 412, 480),
+        'g8': (508, 590, 348, 411),
+        'f8': (508, 600, 281, 347),
+        'e8': (505, 608, 223, 280),
+        'd8': (505, 595, 167, 222),
+        'c8': (505, 585, 110, 166),
+        'b8': (505, 585, 52, 109),
+        'a8': (505, 585, 0, 51),
 
-        'h7': (447, 512, 400, 472),
-        'g7': (445, 510, 340, 400),
-        'f7': (445, 507, 280, 339),
+        'h7': (447, 512, 413, 480),
+        'g7': (445, 510, 349, 412),
+        'f7': (445, 507, 280, 348),
         'e7': (445, 504, 220, 279),
-        'd7': (445, 504, 160, 219),
-        'c7': (441, 499, 110, 159),
-        'b7': (441, 499, 57, 109),
-        'a7': (438, 494, 0, 56),
+        'd7': (441, 504, 167, 219),
+        'c7': (441, 504, 110, 166),
+        'b7': (438, 504, 52, 109),
+        'a7': (435, 504, 0, 51),
 
-        'h6': (384, 446, 405, 479),
-        'g6': (383, 444, 340, 404),
-        'f6': (383, 444, 280, 339),
-        'e6': (383, 444, 220, 279),
-        'd6': (383, 444, 160, 219),
-        'c6': (381, 440, 102, 159),
-        'b6': (380, 440, 55, 101),
-        'a6': (380, 437, 0, 54),
+        'h6': (384, 446, 413, 479),
+        'g6': (383, 444, 348, 412),
+        'f6': (381, 444, 284, 347),
+        'e6': (378, 444, 220, 283),
+        'd6': (377, 440, 166, 219),
+        'c6': (375, 440, 111, 165),
+        'b6': (375, 437, 55, 110),
+        'a6': (373, 434, 0, 54),
 
-        'h5': (316, 383, 405, 480),
-        'g5': (316, 382, 340, 404),
-        'f5': (316, 382, 280, 339),
-        'e5': (317, 382, 220, 279),
-        'd5': (318, 382, 159, 219),
-        'c5': (318, 380, 101, 158),
-        'b5': (318, 379, 50, 100),
-        'a5': (318, 379, 0, 49),
+        'h5': (316, 383, 413, 480),
+        'g5': (316, 382, 350, 412),
+        'f5': (313, 380, 287, 349),
+        'e5': (312, 377, 227, 286),
+        'd5': (311, 376, 168, 226),
+        'c5': (311, 374, 111, 167),
+        'b5': (310, 374, 57, 110),
+        'a5': (309, 372, 0, 56),
 
-        'h4': (250, 315, 405, 480),
-        'g4': (250, 315, 340, 404),
-        'f4': (250, 315, 282, 339),
-        'e4': (250, 316, 218, 279),
-        'd4': (253, 317, 160, 219),
-        'c4': (255, 317, 100, 159),
-        'b4': (256, 317, 47, 99),
-        'a4': (256, 317, 0, 46),
+        'h4': (246, 315, 414, 480),
+        'g4': (246, 315, 351, 415),
+        'f4': (245, 312, 286, 350),
+        'e4': (245, 311, 226, 285),
+        'd4': (245, 310, 168, 225),
+        'c4': (245, 310, 111, 167),
+        'b4': (246, 309, 58, 110),
+        'a4': (247, 308, 0, 57),
 
-        'h3': (180, 249, 410, 480),
-        'g3': (180, 249, 342, 409),
-        'f3': (183, 249, 281, 341),
-        'e3': (185, 249, 220, 280),
-        'd3': (187, 252, 158, 219),
-        'c3': (190, 254, 95, 157),
-        'b3': (192, 255, 45, 94),
-        'a3': (192, 255, 0, 44),
+        'h3': (180, 245, 420, 480),
+        'g3': (180, 245, 351, 419),
+        'f3': (177, 244, 291, 350),
+        'e3': (180, 244, 228, 290),
+        'd3': (181, 244, 171, 227),
+        'c3': (182, 244, 114, 170),
+        'b3': (182, 245, 58, 113),
+        'a3': (185, 246, 0, 57),
 
-        'h2': (113, 179, 413, 480),
-        'g2': (112, 179, 341, 412),
-        'f2': (109, 182, 280, 340),
-        'e2': (112, 184, 220, 279),
-        'd2': (116, 186, 160, 219),
-        'c2': (120, 189, 100, 159),
-        'b2': (128, 191, 45, 99),
-        'a2': (130, 191, 0, 44),
+        'h2': (113, 179, 420, 480),
+        'g2': (112, 179, 353, 419),
+        'f2': (109, 176, 292, 352),
+        'e2': (112, 179, 230, 291),
+        'd2': (116, 180, 172, 229),
+        'c2': (120, 181, 115, 171),
+        'b2': (121, 181, 56, 114),
+        'a2': (120, 184, 0, 55),
 
-        'h1': (20, 112, 410, 480),
-        'g1': (23, 111, 344, 409),
-        'f1': (25, 108, 280, 343),
-        'e1': (32, 111, 220, 279),
-        'd1': (37, 115, 156, 219),
-        'c1': (42, 119, 95, 155),
-        'b1': (55, 127, 43, 94),
-        'a1': (60, 130, 0, 43),
+        'h1': (20, 112, 421, 480),
+        'g1': (23, 111, 353, 420),
+        'f1': (25, 108, 293, 352),
+        'e1': (32, 111, 231, 292),
+        'd1': (37, 115, 170, 230),
+        'c1': (42, 119, 116, 169),
+        'b1': (47, 120, 54, 115),
+        'a1': (45, 119, 0, 53),
     }
     # Draw grid lines based on the provided coordinates
     for key, (x1, x2, y1, y2) in grid_coordinates.items():
@@ -188,89 +188,100 @@ def find_chess_pieces(image, grid_coordinates, orange_mask, black_mask):
 
                 for key, (x1, x2, y1, y2) in grid_coordinates.items():
                     if x1 <= piece_center[0] <= x2 and y1 <= piece_center[1] <= y2:
-                        if key not in pieces_positions:
-                            pieces_positions[key] = []
-                        pieces_positions[key].append((x, y, w, h, color))
+                        pieces_positions[key] = (x, y, w, h, color)
+                        break  
 
     return pieces_positions
 
 # If a piece habitates more than one square, the function will determine the most likely position
 def determine_piece_position(pieces_positions):
     final_positions = {}
-    for key, positions in pieces_positions.items():
-        if len(positions) == 1:
-            final_positions[key] = positions[0]
-        else:
-            max_area = 0
-            best_position = None
-            for (x, y, w, h, color) in positions:
-                area = w * h
-                if area > max_area:
-                    max_area = area
-                    best_position = (x, y, w, h, color)
-            final_positions[key] = best_position
+    for key, position in pieces_positions.items():
+        final_positions[key] = position
     return final_positions
 
 # Function to compare position to determine if movement has occurred
-def compare_piece_positions(old_positions, new_positions):
+def compare_piece_positions(old_positions, new_positions, tolerance=25):
     movements = []
+    used_new_positions = set()
+    print("Old Positions:", old_positions)
+    print("New Positions:", new_positions)
+    # Setting a tolerance for the movement detection at 15 pixels in x
+    def is_within_tolerance(old_pos, new_pos, tol):
+        ox, oy, ow, oh, _ = old_pos
+        nx, ny, nw, nh, _ = new_pos
+        return (abs(ox - nx) <= tol) and (abs(oy - ny) <= tol)
 
-    # Track which pieces have moved
+    # Detect pieces that have moved from old positions
     for old_key, old_piece in old_positions.items():
         found = False
         for new_key, new_piece in new_positions.items():
-            # Check if the piece color matches
-            if old_piece[4] == new_piece[4]:
-                found = True
-                if old_key != new_key:  # Positions are different, so the piece has moved
-                    movements.append((old_key, new_key, old_piece[4]))
-                break
-        if not found:  # The piece has moved from old_key
-            movements.append((old_key, None, old_piece[4]))
+            if new_key in used_new_positions:
+                continue
+            if old_piece[4] == new_piece[4] and old_key != new_key:
+                if old_key not in new_positions and new_key not in old_positions:
+                    if not is_within_tolerance(old_piece, new_piece, tolerance):
+                        movements.append((old_key, new_key))
+                        used_new_positions.add(new_key)
+                        found = True
+                        break
+        if not found:
+            movements.append((old_key, None))
 
-    # Check for new pieces that were not in old positions
+    # Detect new pieces that have appeared
     for new_key, new_piece in new_positions.items():
-        found = False
-        for old_key, old_piece in old_positions.items():
-            if new_piece[4] == old_piece[4]:
-                found = True
-                break
-        if not found:  # The piece has moved to new_key
-            movements.append((None, new_key, new_piece[4]))
+        if new_key not in used_new_positions and new_key not in old_positions:
+            for old_key, old_piece in old_positions.items():
+                if old_piece[4] == new_piece[4] and old_key not in used_new_positions:
+                    if not is_within_tolerance(old_piece, new_piece, tolerance):
+                        movements.append((old_key, new_key))
+                        used_new_positions.add(new_key)
+                        break
 
-    return movements
+    # Detect captures
+    for old_key, old_piece in old_positions.items():
+        if old_key not in new_positions:
+            for new_key, new_piece in new_positions.items():
+                if old_piece[4] != new_piece[4] and new_key not in used_new_positions:
+                    if not is_within_tolerance(old_piece, new_piece, tolerance):
+                        movements.append((old_key, new_key))
+                        used_new_positions.add(new_key)
+                        break
+
+    # Debug output for detected movements
+    print("Detected raw movements:", movements)
+
+    # Filter out invalid movements
+    valid_movements = []
+    for move in movements:
+        from_pos, to_pos = move
+        if from_pos and to_pos and from_pos != to_pos:
+            if old_positions[from_pos][4] == new_positions[to_pos][4]:
+                valid_movements.append(move)
+            else:
+                print(f"Ignored invalid movement from {from_pos} to {to_pos} (same color swap)")
+        elif from_pos and not to_pos:
+            valid_movements.append((from_pos, None))
+        elif not from_pos and to_pos:
+            valid_movements.append((None, to_pos))
+
+    # Debug output for valid movements
+    print("Valid movements:", valid_movements)
+
+    return valid_movements
 
 def generate_movement_strings(movements, old_positions, new_positions):
     move_strings = []
     for move in movements:
-        from_pos, to_pos, color = move
+        from_pos, to_pos = move
         if from_pos and to_pos:
             move_strings.append(f'{from_pos}{to_pos}')
-            if to_pos in old_positions and old_positions[to_pos][4] != color:
-                move_strings.append(f'{old_positions[to_pos][4][0].upper()} captured at {to_pos}')
-        elif from_pos:
-            # Piece moved from from_pos but not tracked to a new position
-            for new_key, new_piece in new_positions.items():
-                if new_piece[4] == color and new_key != from_pos:
-                    move_strings.append(f'{from_pos}{new_key}')
-                    if new_key in old_positions and old_positions[new_key][4] != color:
-                        move_strings.append(f'{old_positions[new_key][4][0].upper()} captured at {new_key}')
-                    break
-        elif to_pos:
-            # New piece appeared at to_pos
-            for old_key, old_piece in old_positions.items():
-                if old_piece[4] == color and old_key != to_pos:
-                    move_strings.append(f'{old_key}{to_pos}')
-                    if to_pos in old_positions and old_positions[to_pos][4] != color:
-                        move_strings.append(f'{old_positions[to_pos][4][0].upper()} captured at {to_pos}')
-                    break
-
     return move_strings
 
 previous_positions = None
 
 # Open the camera
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(2)
 if not camera.isOpened():
     print("Error: Could not open camera.")
     exit()
@@ -288,17 +299,17 @@ cv2.setTrackbarPos('Kernel size', 'Distorted and Undistorted Frame', 5)
 
 cv2.setTrackbarPos('H min', 'HSV Orange Mask', 0)   
 cv2.setTrackbarPos('H max', 'HSV Orange Mask', 360)
-cv2.setTrackbarPos('S min', 'HSV Orange Mask', 191)
+cv2.setTrackbarPos('S min', 'HSV Orange Mask', 160)
 cv2.setTrackbarPos('S max', 'HSV Orange Mask', 255)
 cv2.setTrackbarPos('V min', 'HSV Orange Mask', 105)
 cv2.setTrackbarPos('V max', 'HSV Orange Mask', 255)
 
-cv2.setTrackbarPos('H min', 'HSV Black Mask', 89)     
-cv2.setTrackbarPos('H max', 'HSV Black Mask', 123)
-cv2.setTrackbarPos('S min', 'HSV Black Mask', 0)
-cv2.setTrackbarPos('S max', 'HSV Black Mask', 206)
+cv2.setTrackbarPos('H min', 'HSV Black Mask', 97)     
+cv2.setTrackbarPos('H max', 'HSV Black Mask', 121)
+cv2.setTrackbarPos('S min', 'HSV Black Mask', 85)
+cv2.setTrackbarPos('S max', 'HSV Black Mask', 217)
 cv2.setTrackbarPos('V min', 'HSV Black Mask', 0)
-cv2.setTrackbarPos('V max', 'HSV Black Mask', 82)
+cv2.setTrackbarPos('V max', 'HSV Black Mask', 97)
 
 
 # Add a delay to allow the camera to focus
