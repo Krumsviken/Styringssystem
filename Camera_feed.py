@@ -204,66 +204,64 @@ def determine_piece_position(pieces_positions):
 def compare_piece_positions(old_positions, new_positions, tolerance=25):
     movements = []
     used_new_positions = set()
+    # Debugging output for old and new positions
     print("Old Positions:", old_positions)
     print("New Positions:", new_positions)
-    # Setting a tolerance for the movement detection at 15 pixels in x
+
     def is_within_tolerance(old_pos, new_pos, tol):
         ox, oy, ow, oh, _ = old_pos
         nx, ny, nw, nh, _ = new_pos
         return (abs(ox - nx) <= tol) and (abs(oy - ny) <= tol)
 
-    # Detect pieces that have moved from old positions
+    # Detect pieces that have moved from old positions to new positions
     for old_key, old_piece in old_positions.items():
         found = False
         for new_key, new_piece in new_positions.items():
             if new_key in used_new_positions:
                 continue
-            if old_piece[4] == new_piece[4] and old_key != new_key:
-                if old_key not in new_positions and new_key not in old_positions:
-                    if not is_within_tolerance(old_piece, new_piece, tolerance):
-                        movements.append((old_key, new_key))
-                        used_new_positions.add(new_key)
-                        found = True
-                        break
+            if old_piece[4] == new_piece[4]:  # same color
+                if is_within_tolerance(old_piece, new_piece, tolerance):
+                    used_new_positions.add(new_key)
+                    found = True
+                    break
+            else:
+                if not is_within_tolerance(old_piece, new_piece, tolerance):
+                    movements.append((old_key, new_key))
+                    used_new_positions.add(new_key)
+                    found = True
+                    break
         if not found:
             movements.append((old_key, None))
 
-    # Detect new pieces that have appeared
+    # Detect new pieces that have appeared in new positions
     for new_key, new_piece in new_positions.items():
-        if new_key not in used_new_positions and new_key not in old_positions:
+        if new_key not in used_new_positions:
+            found = False
             for old_key, old_piece in old_positions.items():
-                if old_piece[4] == new_piece[4] and old_key not in used_new_positions:
-                    if not is_within_tolerance(old_piece, new_piece, tolerance):
-                        movements.append((old_key, new_key))
+                if old_piece[4] == new_piece[4]:  # same color
+                    if is_within_tolerance(old_piece, new_piece, tolerance):
                         used_new_positions.add(new_key)
+                        found = True
                         break
-
-    # Detect captures
-    for old_key, old_piece in old_positions.items():
-        if old_key not in new_positions:
-            for new_key, new_piece in new_positions.items():
-                if old_piece[4] != new_piece[4] and new_key not in used_new_positions:
-                    if not is_within_tolerance(old_piece, new_piece, tolerance):
-                        movements.append((old_key, new_key))
-                        used_new_positions.add(new_key)
-                        break
+            if not found:
+                movements.append((None, new_key))
 
     # Debug output for detected movements
     print("Detected raw movements:", movements)
 
-    # Filter out invalid movements
+    # Filter out invalid movements and ensure no duplicate back-and-forth movements
     valid_movements = []
+    checked_positions = set()
     for move in movements:
         from_pos, to_pos = move
-        if from_pos and to_pos and from_pos != to_pos:
-            if old_positions[from_pos][4] == new_positions[to_pos][4]:
+        if (from_pos, to_pos) not in checked_positions and (to_pos, from_pos) not in checked_positions:
+            if from_pos and to_pos and from_pos != to_pos:
                 valid_movements.append(move)
-            else:
-                print(f"Ignored invalid movement from {from_pos} to {to_pos} (same color swap)")
-        elif from_pos and not to_pos:
-            valid_movements.append((from_pos, None))
-        elif not from_pos and to_pos:
-            valid_movements.append((None, to_pos))
+                checked_positions.add((from_pos, to_pos))
+            elif from_pos and not to_pos:
+                pass
+            elif not from_pos and to_pos:
+                pass
 
     # Debug output for valid movements
     print("Valid movements:", valid_movements)
@@ -352,7 +350,7 @@ while True:
     if ksize <= 0:
         ksize = 1  # Kernel size must be at least 1
 
-    # Ensure kernel size is odd
+    # Ensure kernel size is odd, because Gaussian blur requires an odd kernel size
     if ksize % 2 == 0:
         ksize += 1
 
